@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Merger</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <!-- Left Side: Form for merging Excel files -->
+            <section class="merge-section">
+                <h1>Excel Merger</h1>
+                <p>Combine two Excel files into one.</p>
+                <form id="upload-form" action="{{ url_for('merge_files') }}" method="post" enctype="multipart/form-data">
+                    <input type="file" name="files" id="file-input" multiple accept=".xlsx">
+                    <button type="submit">Merge Files</button>
+                </form>
+                <div id="output-container">
+                    <p id="output-message"></p>
+                </div>
+            </section>
+            
+            <!-- Right Side: Description of the Excel Merger -->
+            <section class="info-section">
+                <h2>About the Excel Merger</h2>
+                <p>This Excel Merger tool allows you to easily combine two Excel files into one. 
+                   Simply upload your files, and the tool will automatically merge them, preserving all your data. 
+                   It’s perfect for consolidating multiple sheets, comparing data across different files, 
+                   and simplifying data analysis tasks.</p>
+            </section>
+        </div>
+    </main>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
